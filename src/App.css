@@ -125,61 +125,10 @@ html, body {
   background-image:radial-gradient(circle, lightcoral, tomato);
 }
 
-.comic-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-  
-.panel-input {
-  margin-bottom: 15px;
-}
-
-.panel-label {
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 16px;
-  margin-bottom: 5px;
-  margin-right: 0.5rem;
-}
-
-.panel-text-input {
-  padding: 8px;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 14px;
-}
-
-.generate-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.generate-button:disabled {
-  background-color: #a0cfa0;
-  color: #ccc;
-  cursor: not-allowed;
-}
-
-.generate-button:hover {
-  background-color: #45a049;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-}
-
-.comic-title {
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333; /* Optional: Add color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle text shadow */
-}
+/* .images {
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    margin: 0 auto;
+    border-radius: 8px; 
+  } */
