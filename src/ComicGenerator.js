@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+mport React, { useState } from 'react';
 
 async function query(data) {
   const response = await fetch(
@@ -21,7 +21,6 @@ async function query(data) {
 function ComicGenerator() {
   const [comicText, setComicText] = useState(['eren', 'mikasa', 'titan', 'armin', 'levi', 'annie', 'jean', 'aot', 'colossal', 'rumbling']);
   const [comicImages, setComicImages] = useState(Array(10).fill(null));
-  const [buttonDisable, setButtonDisable] = useState(false);
 
   const handleTextChange = (index, text) => {
     const updatedText = [...comicText];
@@ -31,7 +30,6 @@ function ComicGenerator() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonDisable(true)
     const imagePromises = comicText.map((text) => {
       return query({ "inputs": text });
     });
@@ -44,31 +42,23 @@ function ComicGenerator() {
     } catch (error) {
       console.error('API Error:', error);
       // Handle API errors and provide user feedback
-    } finally {
-      setButtonDisable(false);
     }
   };
 
   return (
     <div className="comic-generator">
-      <div className='flex-center'><h1 className='comic-title'>Comic Strip Generator</h1></div>
-      <form onSubmit={handleSubmit} className="comic-form">
+      <h1>Comic Strip Generator</h1>
+      <form onSubmit={handleSubmit}>
         {comicText.map((text, index) => (
-          <div key={index} className="panel-input">
-            <label htmlFor={`panel-${index + 1}`} className="panel-label">{`Panel ${index + 1}`}</label>
-            <input
-              id={`panel-${index + 1}`}
-              type="text"
-              placeholder={`Enter text for Panel ${index + 1}`}
-              value={text}
-              onChange={(e) => handleTextChange(index, e.target.value)}
-              className="panel-text-input"
-            />
-          </div>
+          <input
+            key={index}
+            type="text"
+            placeholder={`Panel ${index + 1} text`}
+            value={text}
+            onChange={(e) => handleTextChange(index, e.target.value)}
+          />
         ))}
-        <button type="submit" className="generate-button" disabled={buttonDisable}>
-          {buttonDisable ? 'Generating...' : 'Generate Comic'}
-        </button>
+        <button type="submit">Generate Comic</button>
       </form>
       <article className="comic">
         {comicImages.map((imageUrl, index) => (
